@@ -158,6 +158,10 @@ public class Movie implements Serializable {
                 "\nDirector: " + getDirector() +
                 "\nActors: " + getActor1() + ", " + getActor2() + ", " + getActor3() + "\n";
     }
+
+    public static void main(String[] args){
+
+    }
     
 
 }
