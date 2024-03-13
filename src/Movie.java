@@ -1,4 +1,9 @@
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
+import java.io.Serializable;
+import java.util.Scanner;
 
 public class Movie implements Serializable {
 
@@ -161,7 +166,57 @@ public class Movie implements Serializable {
 
     public static void main(String[] args){
 
+        PrintWriter outputStream = null;
+        try {
+            outputStream = new PrintWriter(new FileOutputStream("part1_manifest.txt"));
+            outputStream.print("Movies1990.csv" + "\nMovies1991.csv" + "\nMovies1992.csv" + "\nMovies1993.csv" +"\nMovies1994.csv" + "\nMovies1995.csv" +"\nMovies1996.csv" + "\nMovies1997.csv" +"\nMovies1998.csv" + "\nMovies1999.csv");
+        } catch(FileNotFoundException e) {
+ 
+        }
+        finally {
+            outputStream.close();
+        }
+
+        
     }
-    
+
+    public void do_part1() {
+
+        PrintWriter badMovieRecordOutput = null, musicalOutput = null, comedyOutput = null, animationOutput = null, adventureOutput = null,
+        dramaOutput = null, crimeOutput = null, biographyOutput = null, horrorOutput = null, actionOutput = null, documentaryOutput = null,
+        fantasyOutput = null, mysteryOutput = null, sciFiOutput = null, familyOutput = null, westernOutput = null, romanceOutput = null, thrillerOutput = null; 
+
+        Scanner manifestStream = null;
+        try {
+            manifestStream = new Scanner(new FileInputStream("part1_manifest.txt"));
+        } catch (FileNotFoundException e) {
+            
+        }
+
+        while(manifestStream.hasNextLine()){
+           /*
+                Read next line of manifestStream
+                Set the value of a string variable to the contents of that line
+                Use that string variable as the paramter to a new InputStream
+                Read the next line of that InputStream (this is now a movie entry)
+                Then decide what to do with each movie entry
+            */
+
+
+            try {
+                
+                badMovieRecordOutput = new PrintWriter(new FileOutputStream("bad_movie_records.txt"));
+            } catch (FileNotFoundException e){
+
+            }
+            finally{
+
+            }
+            manifestStream.nextLine();
+            
+        
+        }
+
+    }
 
 }
